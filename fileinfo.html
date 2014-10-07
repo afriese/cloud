@@ -1,7 +1,10 @@
 <html>
 <head>
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.min.js"></script>
+	<script type="text/javascript" src="fileinfo.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css" />
 	
 	<style type="text/css">
@@ -64,22 +67,18 @@
 			<br />
 		</br />
 		<table style="font-size: 12px;" width="100%">
-			<tr>
+			<thead>
+				<tr>
 				<th width="30%">Eigenschaft</th>
 				<th width="70%">Value</th>
-			</tr>	
-			<tr>
-				<td>Abrechnungsdatum</td>
-				<td>5. April 2014</td>
 			</tr>		
-			<tr>
-				<td>Abrechnungsdatum</td>
-				<td><input class="form-control input-xs" /></td>
-			</tr>	
-			<tr>
-				<td>Abrechnungsdatum</td>
-				<td><textarea class="form-control input-xs"></textarea></td>
-			</tr>	
+			</thead>
+			<tbody data-bind="foreach: fields">
+				<tr>
+					<td><span data-bind="text: name"></span>:</td>
+					<td><span data-bind="text: data"></span>:</td>
+				</tr>
+			</tbody>
 		</table>			
 	</div>		
 
