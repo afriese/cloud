@@ -61,6 +61,10 @@ var model =	{
 		"name":"Abrechnung",
 		"type":"input",
 		"data":"24. April 2014"
+	},{
+		"name":"Beschreibung",
+		"type":"textarea",
+		"data":"some interesting description"
 	}
 	]
 }
@@ -81,6 +85,7 @@ var FileModel = function(data){
 var Field = function(data){
 	var self = this;
 	self.name = ko.observable(data.name);
+	self.type = ko.observable(data.type);
 	self.data = ko.observable(data.data);
 }
 

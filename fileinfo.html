@@ -19,8 +19,12 @@
 		
 		td,th {
 			padding: 3px;		
+			height: 31px;
 		}
 		
+		.form-full {
+			width: 100%;
+		}
 		
 	</style>
 </head>
@@ -71,8 +75,6 @@
 				<button type="button" class="btn btn-default btn-sm" data-value="true">edit</button>
 			</div>
 
-			<input data-bind="textInput: test" /><span data-bind="text: test"></span>
-
 			<table style="font-size: 12px;" width="100%">
 				<thead>
 					<tr>
@@ -88,8 +90,11 @@
 				</tbody>
 				<tbody data-bind="foreach: fields, visible: editmode() == 'true' ? true : false">
 					<tr>
-						<td><input data-bind="textInput: name" /></td>
-						<td><input data-bind="textInput: data" /><span data-bind="text: data"></span></td>
+						<td valign="top"><span data-bind="text: name"></span></td>
+						<td valign="top">
+							<div data-bind="if: type() == 'input'"><input class="form-controĺ form-full" data-bind="textInput: data" /></div>
+							<div data-bind="if: type() == 'textarea'"><textarea class="form-controĺ form-full" data-bind="textInput: data"></textarea></div>
+						</td>
 					</tr>
 				</tbody>
 			</table>			
