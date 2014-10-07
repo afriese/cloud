@@ -3,6 +3,7 @@
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js"></script>
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="fileinfo.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css" />
@@ -47,8 +48,6 @@
 			</div>
 		</nav>	
 
-
-
 		<div class="col-md-3">
 			<h3>Kathegorien</h3>
 			<ul class="list-unstyled">
@@ -66,6 +65,14 @@
 			<span>Uploaded: 2. April 2014</span>
 			<br />
 		</br />
+
+		<div class="btn-group pull-right" data-bind="radio: editmode">
+		    <button type="button" class="btn btn-default btn-sm" data-value="false">view</button>
+		    <button type="button" class="btn btn-default btn-sm" data-value="true">edit</button>
+		</div>
+
+
+
 		<table style="font-size: 12px;" width="100%">
 			<thead>
 				<tr>
@@ -73,10 +80,16 @@
 				<th width="70%">Value</th>
 			</tr>		
 			</thead>
-			<tbody data-bind="foreach: fields">
+			<tbody data-bind="foreach: fields, visible: editmode() == 'false' ? true : false">
 				<tr>
 					<td><span data-bind="text: name"></span>:</td>
 					<td><span data-bind="text: data"></span>:</td>
+				</tr>
+			</tbody>
+			<tbody data-bind="foreach: fields, visible: editmode() == 'true' ? true : false">
+				<tr>
+					<td><input data-bind="text: name" /></td>
+					<td><input data-bind="text: data" /></td>
 				</tr>
 			</tbody>
 		</table>			
