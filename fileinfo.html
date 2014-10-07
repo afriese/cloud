@@ -71,7 +71,7 @@
 				<button type="button" class="btn btn-default btn-sm" data-value="true">edit</button>
 			</div>
 
-
+			<input data-bind="textInput: test" /><span data-bind="text: test"></span>
 
 			<table style="font-size: 12px;" width="100%">
 				<thead>
@@ -89,11 +89,13 @@
 				<tbody data-bind="foreach: fields, visible: editmode() == 'true' ? true : false">
 					<tr>
 						<td><input data-bind="textInput: name" /></td>
-						<td><input data-bind="textInput: data" /></td>
+						<td><input data-bind="textInput: data" /><span data-bind="text: data"></span></td>
 					</tr>
 				</tbody>
 			</table>			
 		</div>		
+
+
 
 		<div class="col-md-3">
 			<h3>Dateiinformationen</h3>

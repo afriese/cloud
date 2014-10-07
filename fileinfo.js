@@ -68,8 +68,14 @@ var model =	{
 
 
 var FileModel = function(data){
+	this.test = ko.observable("JJJ")
 	this.editmode = ko.observable("false");
-	this.fields = ko.observableArray(data.fields);
+
+	var f = [];
+	for( var i in data.fields)
+		f.push(new Field(data.fields[i]));
+
+	this.fields = ko.observableArray(f);
 }
 
 var Field = function(data){
